@@ -24,6 +24,7 @@ app.use(express.json());
 
 //Files
 const secondChanceRoutes = require('./routes/secondChanceItemsRoutes');
+const authRoutes = require('./routes/authRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const pinoHttp = require('pino-http');
 const logger = require('./logger');
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 app.use('/api/secondchance/items', secondChanceRoutes);
 app.use('/api/secondchance/search', searchRoutes);
+app.use('/api/auth', authRoutes);
 
 //Error Handler
 app.use((err, req, res, next) => {
